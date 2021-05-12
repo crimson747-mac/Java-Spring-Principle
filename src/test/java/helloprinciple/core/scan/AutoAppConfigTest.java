@@ -1,7 +1,9 @@
 package helloprinciple.core.scan;
 
 import helloprinciple.core.AutoAppConfig;
+import helloprinciple.core.member.MemberRepository;
 import helloprinciple.core.member.MemberService;
+import helloprinciple.core.order.OrderServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -11,7 +13,12 @@ public class AutoAppConfigTest {
     @Test
     void basicScan() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class);
+
         MemberService memberService = ac.getBean(MemberService.class);
         assertThat(memberService).isInstanceOf(MemberService.class);
+
+        OrderServiceImpl bean = ac.getBean(OrderServiceImpl.class);
+        MemberRepository memberRepository = bean.getMemberRepository();
+        System.out.println("memberRepository = " + memberRepository);
     }
 }
