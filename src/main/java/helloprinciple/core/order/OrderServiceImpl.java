@@ -1,5 +1,6 @@
 package helloprinciple.core.order;
 
+import helloprinciple.core.annotation.MainDiscountPolicy;
 import helloprinciple.core.discount.DiscountPolicy;
 import helloprinciple.core.member.Member;
 import helloprinciple.core.member.MemberRepository;
@@ -14,7 +15,7 @@ public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;;
     private final DiscountPolicy discountPolicy;
 
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
