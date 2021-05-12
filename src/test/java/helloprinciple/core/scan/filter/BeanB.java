@@ -1,4 +1,4 @@
-package helloprinciple.core.filter;
+package helloprinciple.core.scan.filter;
 
 @MyExcludeComponent
 public class BeanB {

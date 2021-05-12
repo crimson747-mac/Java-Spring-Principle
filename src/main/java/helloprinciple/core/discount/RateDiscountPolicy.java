@@ -3,10 +3,11 @@ package helloprinciple.core.discount;
 import helloprinciple.core.annotation.MainDiscountPolicy;
 import helloprinciple.core.member.Grade;
 import helloprinciple.core.member.Member;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@MainDiscountPolicy
+@Primary
 public class RateDiscountPolicy implements DiscountPolicy{
     private int discountPercent = 10;
 
